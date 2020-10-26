@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 let textEditor 
-const submitText = () =>{
-console.log(textEditor.getData())
-}
+let jsx = '<p>sadfvsdf</p>'
+
 function Editor(){
+    const [display, setDipaly] = useState('')
+
+    const submitText = () =>{
+        console.log(textEditor.getData())
+        setDipaly(textEditor.getData())
+         }
+
+
     return(
         <div className="App">
         <h2>Using CKEditor 5 build in React</h2>
@@ -23,14 +30,10 @@ function Editor(){
                 const data = editor.getData();
                 console.log( { event, editor, data } );
             } }
-            onBlur={ ( event, editor ) => {
-                console.log( 'Blur.', editor );
-            } }
-            onFocus={ ( event, editor ) => {
-                console.log( 'Focus.', editor );
-            } }
         />
-    </div>
+        {/* {display} */}
+        <div dangerouslySetInnerHTML={{__html: display}} />
+     </div>
     )
 }
 
