@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import ReactHtmlParser from "react-html-parser";
 let textEditor 
 let jsx = '<p>sadfvsdf</p>'
 
@@ -32,7 +32,9 @@ function Editor(){
             } }
         />
         {/* {display} */}
-        <div dangerouslySetInnerHTML={{__html: display}} />
+        <div>
+            {ReactHtmlParser(display)}
+            </div>
      </div>
     )
 }
