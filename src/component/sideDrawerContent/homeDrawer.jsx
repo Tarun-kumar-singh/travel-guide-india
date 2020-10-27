@@ -13,9 +13,11 @@ import TopAppBar from "./topAppBar";
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
+      marginBottom:'20px',
+      marginLeft:'40px'
     },
     toolbar: theme.mixins.toolbar,
-   
+ 
   }));
 
   
@@ -26,31 +28,58 @@ const SideDrawerContent = () => {
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
+
+    const data = [{
+        id: 'root',
+        name: 'Parent',
+        children: [
+          {
+            id: '1',
+            name: 'Child - 1',
+          },
+          {
+            id: '3',
+            name: 'Child - 3'
+          },
+        ],
+      },
+      {
+        id: 'root-2',
+        name: 'Parent',
+        children: [
+          {
+            id: '1',
+            name: 'Child - 1',
+          },
+          {
+            id: '3',
+            name: 'Child - 3'
+          },
+        ],
+      }];
+
+    const renderTree = (nodes) => (
+        <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
+            {Array.isArray(nodes.children) ? nodes.children.map((node) => renderTree(node)) : null}
+        </TreeItem>
+       );
+
     const drawer = (
         <div>
           <div>Logo</div>
           <div className={classes.toolbar} />
+          { data.map((data, index) => (
           <TreeView
-          className={classes.root}
-          defaultCollapseIcon={<ExpandMoreIcon />}
-          defaultExpandIcon={<ChevronRightIcon />}
-        >
-            <TreeItem nodeId="1" label="Applications">
-            <TreeItem nodeId="2" label="Calendar" />
-            <TreeItem nodeId="3" label="Chrome" />
-            <TreeItem nodeId="4" label="Webstorm" />
-          </TreeItem>
-        </TreeView>
-         
-          <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
-                 <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>    
+            className={classes.root}
+            defaultCollapseIcon={<ExpandMoreIcon />}
+            defaultExpandIcon={<ChevronRightIcon />}
+            >     
+                {renderTree(data)}
+           </TreeView>
+           ))}
         </div>
       );
+
     return(
         <div> 
         <TopAppBar
@@ -61,8 +90,7 @@ const SideDrawerContent = () => {
         drawer = {drawer} 
         mobileOpen={mobileOpen}
         handleDrawerToggle={handleDrawerToggle}
-        />
-                
+        />          
      </div>
     )
 }
