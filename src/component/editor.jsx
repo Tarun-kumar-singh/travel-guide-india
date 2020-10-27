@@ -2,11 +2,20 @@ import React, { Component, useState } from 'react';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from "react-html-parser";
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
 let textEditor 
 let jsx = '<p>sadfvsdf</p>'
-
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
 function Editor(){
     const [display, setDipaly] = useState('')
+    const classes = useStyles();
 
     const submitText = () =>{
         console.log(textEditor.getData())
@@ -15,9 +24,19 @@ function Editor(){
 
 
     return(
-        <div className="App">
-        <h2>Using CKEditor 5 build in React</h2>
-        <button onClick={() => submitText()}>submit</button>
+        <div>
+         <div style={{position:'absolute', right:'13vw', top:'52px' }}>
+            <Button
+            onClick={() => submitText()}
+            variant="contained"
+            color="default"
+            className={classes.button}
+            startIcon={<CloudUploadIcon />}
+        >
+            Upload
+        </Button>
+      </div>
+        <div style={{width:'70vw', marginLeft:'17%', marginTop:'100px'}}>
         <CKEditor
             editor={ ClassicEditor }
             // data="<p>Hello from CKEditor 5!</p>"
@@ -31,6 +50,7 @@ function Editor(){
                 console.log( { event, editor, data } );
             } }
         />
+        </div>
         {/* {display} */}
         <div>
             {ReactHtmlParser(display)}
