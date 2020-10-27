@@ -68,6 +68,7 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
+      <div>Logo</div>
       <div className={classes.toolbar} />
       <Divider />
       <TreeView
@@ -81,15 +82,14 @@ function ResponsiveDrawer(props) {
         <TreeItem nodeId="4" label="Webstorm" />
       </TreeItem>
     </TreeView>
+     
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
              <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
-      <Divider />
-    
+      </List>    
     </div>
   );
 
@@ -109,9 +109,6 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Responsive drawer
-          </Typography>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -144,10 +141,7 @@ function ResponsiveDrawer(props) {
             {drawer}
           </Drawer>
         </Hidden>
-      </nav>     
-         <div>
-           <MainContent />
-         </div>
+      </nav> 
     </div>
   );
 }
