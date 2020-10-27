@@ -21,8 +21,6 @@ function Editor(){
         console.log(textEditor.getData())
         setDipaly(textEditor.getData())
          }
-
-
     return(
         <div>
          <div style={{position:'absolute', right:'13vw', top:'52px' }}>
@@ -51,7 +49,6 @@ function Editor(){
             } }
         />
         </div>
-        {/* {display} */}
         <div>
             {ReactHtmlParser(display)}
             </div>
