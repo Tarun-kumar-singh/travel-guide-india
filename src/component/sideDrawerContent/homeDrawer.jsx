@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       marginTop:'10px',
       marginBottom:'40px',
-      marginLeft:'30%'
+      marginLeft:'10%'
     },
     toolbar: theme.mixins.toolbar,
     label:{
@@ -37,7 +37,7 @@ const SideDrawerContent = () => {
 
     const data = [{
         id: 'root',
-        name: 'Parent',
+        name: 'English',
         children: [
           {
             id: '1',
@@ -51,7 +51,7 @@ const SideDrawerContent = () => {
       },
       {
         id: 'root-2',
-        name: 'Parent',
+        name: 'Hindi',
         children: [
           {
             id: '1',
@@ -62,7 +62,36 @@ const SideDrawerContent = () => {
             name: 'Child - 3'
           },
         ],
-      }];
+      },
+      {
+        id: 'root-2',
+        name: 'Math',
+        children: [
+          {
+            id: '1',
+            name: 'Child - 1',
+          },
+          {
+            id: '3',
+            name: 'Child - 3'
+          },
+        ],
+      },
+      {
+        id: 'root-2',
+        name: 'Computer Science',
+        children: [
+          {
+            id: '1',
+            name: 'Child - 1',
+          },
+          {
+            id: '3',
+            name: 'Child - 3'
+          },
+        ],
+      }
+    ];
 
     const renderTree = (nodes) => (
         <TreeItem      
