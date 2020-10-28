@@ -89,12 +89,13 @@ const SideDrawerContent = () => {
           <div>Logo</div>
           <div className={classes.toolbar} />
           { data.map((data, index) => (
-          <TreeView
-            className={classes.root}
-            defaultCollapseIcon={<ExpandMoreIcon />}
-            defaultExpandIcon={<ChevronRightIcon />}
-            >     
-                {renderTree(data)}
+            <TreeView
+                key={index}
+                className={classes.root}
+                defaultCollapseIcon={<ExpandMoreIcon />}
+                defaultExpandIcon={<ChevronRightIcon />}
+                >         
+                    {renderTree(data)}
            </TreeView>
            ))}
         </div>
