@@ -13,12 +13,13 @@ import TopAppBar from "./topAppBar";
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
-      marginBottom:'20px',
-      marginLeft:'40px'
+      marginTop:'10px',
+      marginBottom:'40px',
+      marginLeft:'30%'
     },
     toolbar: theme.mixins.toolbar,
     label:{
-        color:"red",
+        
          },
     content:{
         color:'green'
@@ -67,7 +68,7 @@ const SideDrawerContent = () => {
         <TreeItem      
              key={nodes.id} 
             nodeId={nodes.id} 
-            label={nodes.name}
+            label={<span style={{ fontWeight: 'bold' }}>{nodes.name}</span>}
             className={classes.label}
          >
              {
