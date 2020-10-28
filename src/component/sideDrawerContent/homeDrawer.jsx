@@ -17,7 +17,12 @@ const useStyles = makeStyles((theme) => ({
       marginLeft:'40px'
     },
     toolbar: theme.mixins.toolbar,
- 
+    label:{
+        color:"red",
+         },
+    content:{
+        color:'green'
+    }
   }));
 
   
@@ -59,8 +64,22 @@ const SideDrawerContent = () => {
       }];
 
     const renderTree = (nodes) => (
-        <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
-            {Array.isArray(nodes.children) ? nodes.children.map((node) => renderTree(node)) : null}
+        <TreeItem      
+             key={nodes.id} 
+            nodeId={nodes.id} 
+            label={nodes.name}
+            className={classes.label}
+         >
+             {
+                nodes.children.map((node) =>(
+                <TreeItem      
+                className={classes.content}
+                key={node.id} 
+                nodeId={node.id} 
+                label={node.name}
+                />
+                ))
+            }
         </TreeItem>
        );
 
