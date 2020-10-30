@@ -17,9 +17,11 @@ const DisplayQuestion = () => {
     const correctAsnwer = 1
     const handleChange = (event) => {
         if(event.target.value == correctAsnwer){
+            setError(false)
             handleClick()
         }
         else{
+            setOpen(false)
             setError(true)
         }
     };
