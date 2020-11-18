@@ -21,6 +21,14 @@ function Alert(props) {
   }));
 const DisplayQuestion = () => {
 
+    const questioCollection = [{
+    Q: 'Wher is tche capital of India ?',
+    'option-1':'Delhi',
+    'option-2':'Mumbai',
+    'option-3':'Kolkata',
+    rightAnswer: 'option-1'
+    }]
+
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [error, setError] = useState(false)
