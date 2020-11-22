@@ -25,6 +25,12 @@ const Option = (props) =>{
      const classes = useStyles();
 
     return(
+        <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        >
             <div 
             onClick={() => props.checkOption(props.item)}
  
@@ -32,13 +38,14 @@ const Option = (props) =>{
                 <Paper className={classes.paper}>
                     <Grid container wrap="nowrap" spacing={2}>
                         <Grid item xs>
-                            <Typography>      
+                            <Typography variant="body1" component="body1">      
                                 {props.item}
                             </Typography>
                         </Grid>
                     </Grid>
                 </Paper>
-             </div>    
+             </div> 
+         </Grid>       
     )
  
 }

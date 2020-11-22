@@ -7,8 +7,10 @@ const QuizHome = () => {
 
     const [qno, setQno] = useState(0) 
     const checkOption = (item) => {
-    console.log(item)
-    setQno(1)
+        if(qno === 1){
+            return
+        }
+        setQno(qno+1)
     }
     return(
         <div>
@@ -27,7 +29,7 @@ const QuizHome = () => {
                     )
             })
         }
-
+       
         </div>
     )
 }

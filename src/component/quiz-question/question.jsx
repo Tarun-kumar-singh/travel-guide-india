@@ -41,30 +41,6 @@ const Question = (props) =>{
        </Typography>
         </div>
         </Grid>
-
-        {/* <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-        >
-             <Option
-                 Option
-                 item="Delhi"
-                 />
-            <Option
-                 Option
-                 item="Kolkata"
-                 />
-            <Option
-                 Option
-                 item="Patna"
-                 />
-            <Option
-                 Option
-                 item="Desdfn dsfkgu dgfug akhdlhi"
-                 />
-       </Grid> */}
         </div>
     )
  
