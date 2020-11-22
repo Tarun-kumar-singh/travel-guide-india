@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
     },
   }));
-const Question = () =>{
+const Question = (props) =>{
 
      const styles = useOverShadowStyles();
      const classes = useStyles();
@@ -30,23 +30,24 @@ const Question = () =>{
             <GroupSizesColors/>
         </div>
            <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        >
-         <div>
-             <div>
-             <Paper className={classes.paper}>
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item xs>
-            <Typography>      
-               Where is the capital of India ? 
-            </Typography>
-          </Grid>
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            >
+        <div style={{marginTop:'10px'}}>
+        <Typography variant="h5" component="h5">      
+            {props.question}     
+       </Typography>
+        </div>
         </Grid>
-      </Paper>
-             </div>
+
+        {/* <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+        >
              <Option
                  Option
                  item="Delhi"
@@ -61,11 +62,9 @@ const Question = () =>{
                  />
             <Option
                  Option
-                 item="Delhi"
+                 item="Desdfn dsfkgu dgfug akhdlhi"
                  />
-         </div>
-         </Grid>
-    
+       </Grid> */}
         </div>
     )
  
