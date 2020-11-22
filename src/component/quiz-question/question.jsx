@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
+import GroupSizesColors from "./btnGroup"
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -25,12 +25,16 @@ const Question = () =>{
      const classes = useStyles();
 
     return(
-        <Grid
-  container
-  direction="row"
-  justify="center"
-  alignItems="center"
->
+        <div>
+        <div>
+            <GroupSizesColors/>
+        </div>
+           <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        >
          <div>
              <div>
              <Paper className={classes.paper}>
@@ -61,6 +65,8 @@ const Question = () =>{
                  />
          </div>
          </Grid>
+    
+        </div>
     )
  
 }
