@@ -3,10 +3,26 @@ import Box from '@material-ui/core/Box';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 import Option from "./option";
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      overflow: 'hidden',
+      padding: theme.spacing(0, 3),
+    },
+    paper: {
+      maxWidth: 400,
+      margin: `${theme.spacing(1)}px auto`,
+      padding: theme.spacing(2),
+    },
+  }));
 const Question = () =>{
 
      const styles = useOverShadowStyles();
+     const classes = useStyles();
 
     return(
         <Grid
@@ -17,7 +33,15 @@ const Question = () =>{
 >
          <div>
              <div>
-                 Where is the capital of India ? 
+             <Paper className={classes.paper}>
+        <Grid container wrap="nowrap" spacing={2}>
+          <Grid item xs>
+            <Typography>      
+               Where is the capital of India ? 
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
              </div>
              <Option
                  Option
