@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   return (
     <div className={classes.root}>
       <ButtonGroup variant="contained" size="small" aria-label="small outlined button group">
-        <Button style={{width:'6em',height:'3em',backgroundColor:'red'}}></Button>
+        <Button style={{width:'6em',height:'3em',backgroundColor:'red', borderBottom:'solid blue'}}></Button>
         <Button style={{width:'6em',height:'3em'}}></Button>
         <Button style={{width:'6em',height:'3em',backgroundColor:'green'}}></Button>
         <Button style={{width:'6em',height:'3em'}}></Button>
