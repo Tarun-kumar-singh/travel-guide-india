@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Questions from "../../DemoData/question";
 import Question from "./question";
 import Option from "./option";
+import SnackBar from "./snackBar";
 
 const QuizHome = () => {
 
     const [qno, setQno] = useState(0) 
-    const checkOption = (item) => {
+    const checkOption = () => {
         if(qno === 1){
             return
         }
@@ -14,6 +15,8 @@ const QuizHome = () => {
     }
     return(
         <div>
+            <SnackBar
+                />
          <Question
             question={Questions[qno].question}
         />
