@@ -2,12 +2,12 @@
     {
         'question' : 'Where is the capital of India ?',
         'options':['Delhi','Mumbai','Patna','Kolkata'],
-        'righOption':'Delhi'
+        'righOption':0
     },
     {
         'question':'Where is the capital of Bihar ?',
         'options':['Patna', 'Ranchi', 'Kanpur', 'Noida'],
-         'righOption':'Patna'
+         'righOption':0
    
     }
 ]

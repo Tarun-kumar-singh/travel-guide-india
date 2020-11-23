@@ -8,6 +8,7 @@ import {GlobalStyles} from "../lightMode/globalStyles";
 import { lightTheme, darkTheme } from "../lightMode/theme"
 import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
 
 const QuizHome = () => {
 
@@ -20,11 +21,18 @@ const QuizHome = () => {
       setChecked(() => theme === 'light' ? true : false)  
     }
  
-    const checkOption = () => {
+    const nextQuestion = () => {
         if(qno === 1){
             return
         }
         setQno(qno+1)
+    }
+    const checkAnswer = (item) => {
+        if(Questions[qno].righOption === item){
+            console.log('correcrt')
+            return
+        }
+        console.log('false')
     }
     return(
         <React.Fragment>
@@ -50,14 +58,16 @@ const QuizHome = () => {
             Questions[qno].options.map((el, index) => {
                return (
                         <Option
-                        key={index}
+                         key={index}
+                         itemIndex={index}
                          item={el}
-                         checkOption={checkOption}
+                         checkOption={checkAnswer}
                         />
                     )
             })
         }
-       
+             <Button variant="contained" onClick={nextQuestion}>Next</Button>
+
         </div>
         </ThemeProvider>
         </React.Fragment>

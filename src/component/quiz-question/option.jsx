@@ -32,7 +32,7 @@ const Option = (props) =>{
         alignItems="center"
         >
             <div 
-            onClick={() => props.checkOption(props.item)}
+            onClick={() => props.checkOption(props.itemIndex)}
  
             >
                 <Paper className={classes.paper}>
