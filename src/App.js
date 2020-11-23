@@ -4,8 +4,9 @@ import SearchByCityDispaly from './component/searchByCityDispaly';
 import DisplayQuestion from "./component/quiz-question/displayQuestions";
 import Question from "./component/quiz-question/question";
 import QuizHome from "./component/quiz-question/quiz-home";
+
 function App() {
-  
+
   return (
       <Router>
         <Switch>
