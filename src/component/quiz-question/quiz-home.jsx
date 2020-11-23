@@ -9,7 +9,6 @@ import { lightTheme, darkTheme } from "../lightMode/theme"
 import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
-import { rgbToHex } from '@material-ui/core';
 
 const QuizHome = () => {
 
