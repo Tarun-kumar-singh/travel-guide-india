@@ -7,6 +7,7 @@ import {ThemeProvider} from "styled-components";
 import {GlobalStyles} from "../lightMode/globalStyles";
 import { lightTheme, darkTheme } from "../lightMode/theme"
 import Switch from '@material-ui/core/Switch';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const QuizHome = () => {
 
@@ -27,13 +28,14 @@ const QuizHome = () => {
     }
     return(
         <React.Fragment>
-             <Switch
-                checked={checked}
-                onChange={themeToggler}
-                name="checkedA"
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
+            <Tooltip title="Dark mode">
+                <Switch
+                    checked={checked}
+                    onChange={themeToggler}
+                    name="checkedA"
+                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+            </Tooltip>
          <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
             <GlobalStyles/>
 
