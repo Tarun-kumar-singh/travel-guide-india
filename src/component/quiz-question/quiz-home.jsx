@@ -6,12 +6,19 @@ import SnackBar from "./snackBar";
 import {ThemeProvider} from "styled-components";
 import {GlobalStyles} from "../lightMode/globalStyles";
 import { lightTheme, darkTheme } from "../lightMode/theme"
+import Switch from '@material-ui/core/Switch';
+
 const QuizHome = () => {
-    const [theme, setTheme] = useState('dark');
+
+    const [theme, setTheme] = useState('light');
+    const [checked, setChecked] = useState(false);
+    const [qno, setQno] = useState(0) 
+    
     const themeToggler = () => {
       theme === 'light' ? setTheme('dark') : setTheme('light')
-  }
-    const [qno, setQno] = useState(0) 
+      setChecked(() => theme === 'light' ? true : false)  
+    }
+ 
     const checkOption = () => {
         if(qno === 1){
             return
@@ -19,7 +26,15 @@ const QuizHome = () => {
         setQno(qno+1)
     }
     return(
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <React.Fragment>
+             <Switch
+                checked={checked}
+                onChange={themeToggler}
+                name="checkedA"
+                inputProps={{ 'aria-label': 'secondary checkbox' }}
+        />
+
+         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
             <GlobalStyles/>
 
             <div>
@@ -43,6 +58,7 @@ const QuizHome = () => {
        
         </div>
         </ThemeProvider>
+        </React.Fragment>
     )
 }
 
