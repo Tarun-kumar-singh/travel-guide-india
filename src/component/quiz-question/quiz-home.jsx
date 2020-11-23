@@ -9,19 +9,22 @@ import { lightTheme, darkTheme } from "../lightMode/theme"
 import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
+import { rgbToHex } from '@material-ui/core';
 
 const QuizHome = () => {
 
     const [theme, setTheme] = useState('light');
     const [checked, setChecked] = useState(false);
     const [qno, setQno] = useState(0) 
-    
+    const [isCorrect, setIsCorrect] = useState(undefined)
+    const [isSnackbarOpen, setisSnackbarOpen] = useState(false)
     const themeToggler = () => {
       theme === 'light' ? setTheme('dark') : setTheme('light')
       setChecked(() => theme === 'light' ? true : false)  
     }
  
     const nextQuestion = () => {
+        setisSnackbarOpen(false)
         if(qno === 1){
             return
         }
@@ -30,8 +33,12 @@ const QuizHome = () => {
     const checkAnswer = (item) => {
         if(Questions[qno].righOption === item){
             console.log('correcrt')
+            setIsCorrect('Correct')
+            setisSnackbarOpen(true)
             return
         }
+        setIsCorrect('Wrong')
+        setisSnackbarOpen(true)
         console.log('false')
     }
     return(
@@ -49,6 +56,8 @@ const QuizHome = () => {
 
             <div>
             <SnackBar
+             message={isCorrect}
+             isOpen={isSnackbarOpen}
                 />
          <Question
             question={Questions[qno].question}

@@ -11,10 +11,10 @@ const SnackBar = (props) =>{
       };
     return(
         <Snackbar
-        open={true}
+        open={props.isOpen}
         onClose={handleClose}
         TransitionComponent={transition}
-        message="I love snacks"
+        message={props.message}
         key={transition ? transition.name : ''}
       />
     )
