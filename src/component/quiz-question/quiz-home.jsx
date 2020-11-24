@@ -9,7 +9,10 @@ import { lightTheme, darkTheme } from "../lightMode/theme"
 import Switch from '@material-ui/core/Switch';
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
+import { AddIcCall } from '@material-ui/icons';
 
+const musicCorrectUrl="https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"
+const musicWrongUrl="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
 const QuizHome = () => {
 
     const [theme, setTheme] = useState('light');
@@ -17,6 +20,10 @@ const QuizHome = () => {
     const [qno, setQno] = useState(0) 
     const [isCorrect, setIsCorrect] = useState(undefined)
     const [isSnackbarOpen, setisSnackbarOpen] = useState(false)
+
+    const wrongAnswerAudio = new Audio(musicWrongUrl)
+    const rightAnswerAudio = new Audio(musicCorrectUrl)
+
     const themeToggler = () => {
       theme === 'light' ? setTheme('dark') : setTheme('light')
       setChecked(() => theme === 'light' ? true : false)  
@@ -29,17 +36,20 @@ const QuizHome = () => {
         }
         setQno(qno+1)
     }
+
     const checkAnswer = (item) => {
         if(Questions[qno].righOption === item){
-            console.log('correcrt')
+            rightAnswerAudio.play()
             setIsCorrect('Correct')
             setisSnackbarOpen(true)
             return
         }
+        wrongAnswerAudio.play()
         setIsCorrect('Wrong')
         setisSnackbarOpen(true)
-        console.log('false')
     }
+
+    
     return(
         <React.Fragment>
             <Tooltip title="Dark mode">
